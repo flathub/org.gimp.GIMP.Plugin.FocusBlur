@@ -1,9 +1,9 @@
 {
     "id": "org.gimp.GIMP.Plugin.FocusBlur",
-    "branch": "2-3.36",
+    "branch": "2-40",
     "runtime": "org.gimp.GIMP",
     "runtime-version": "stable",
-    "sdk": "org.gnome.Sdk//3.36",
+    "sdk": "org.gnome.Sdk//40",
     "build-extension": true,
     "appstream-compose": false,
     "build-options": {
@@ -29,6 +29,10 @@
                     "type": "git",
                     "url": "https://github.com/JMoerman/gimp-focusblur-plugin.git",
                     "commit": "fb2161090cf05ccf7bd606aa14ee2822c84cbcf9"
+                },
+                {
+                    "type": "patch",
+                    "path": "focus-blur-fixes.patch"
                 },
                 {
                     "type": "file",
