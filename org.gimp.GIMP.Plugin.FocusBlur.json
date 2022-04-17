@@ -16,11 +16,15 @@
         {
             "name": "focusblur",
             "buildsystem": "cmake-ninja",
+            "build-options": {
+                "cflags": "-fcommon"
+            },
             "config-opts": [
                 "-DCMAKE_BUILD_TYPE=Release",
                 "-DPLUGIN_DIR=${FLATPAK_DEST}/plug-ins"
             ],
             "post-install": [
+                "strip ${FLATPAK_DEST}/plug-ins/gimp-plugin-focusblur",
                 "install -Dm644 --target ${FLATPAK_DEST}/share/metainfo/ org.gimp.GIMP.Plugin.FocusBlur.metainfo.xml",
                 "appstream-compose --basename=org.gimp.GIMP.Plugin.FocusBlur --prefix=${FLATPAK_DEST} --origin=flatpak org.gimp.GIMP.Plugin.FocusBlur",
                 "install -Dm644 -t $FLATPAK_DEST/share/licenses/focusblur COPYING"
@@ -30,10 +34,6 @@
                     "type": "git",
                     "url": "https://github.com/JMoerman/gimp-focusblur-plugin.git",
                     "commit": "fb2161090cf05ccf7bd606aa14ee2822c84cbcf9"
-                },
-                {
-                    "type": "patch",
-                    "path": "focus-blur-fixes.patch"
                 },
                 {
                     "type": "file",
