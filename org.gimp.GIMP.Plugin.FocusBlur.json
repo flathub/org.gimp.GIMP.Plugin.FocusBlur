@@ -17,6 +17,7 @@
             "name": "focusblur",
             "buildsystem": "cmake-ninja",
             "config-opts": [
+                "-DCMAKE_BUILD_TYPE=Release",
                 "-DPLUGIN_DIR=${FLATPAK_DEST}/plug-ins"
             ],
             "post-install": [
